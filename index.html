@@ -1,0 +1,879 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>易承顺 · 个人小站</title>
+<meta name="description" content="易承顺的个人博客：我的世界日常、朋友、推广链接和联系方式。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#E4EBF5;
+  --bg-deep:#DDE6F2;
+  --surface:#E4EBF5;
+  --primary:#5B8DEF;
+  --primary-deep:#3D6ED8;
+  --text:#33425C;
+  --text-soft:#6B7A94;
+  --text-faint:#8A97B0;
+  --border:#FFFFFF;
+  --radius:14px;
+  --radius-sm:10px;
+  --shadow:6px 6px 14px #C3D0E4,-6px -6px 14px #FFFFFF;
+  --shadow-lg:8px 8px 20px #BFCDE4,-8px -8px 20px #FFFFFF;
+  --inset:inset 4px 4px 10px #C3D0E4,inset -4px -4px 10px #FFFFFF;
+  --font-body:"Quicksand","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  --font-hand:"Caveat","Quicksand","PingFang SC","Microsoft YaHei",cursive;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:linear-gradient(180deg,#E9F0F8 0%,var(--bg) 40%,#E1E9F4 100%);
+  background-attachment:fixed;
+  color:var(--text);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.7;
+  letter-spacing:.01em;
+}
+img{max-width:100%}
+a{color:var(--primary-deep)}
+.container{width:min(1080px,calc(100% - 48px));margin-inline:auto}
+.eyebrow{
+  display:inline-block;
+  font-family:var(--font-hand);
+  font-size:1.5rem;
+  font-weight:600;
+  color:var(--primary-deep);
+  margin:0 0 4px;
+}
+section{padding:72px 0}
+.section-head{margin-bottom:32px}
+.section-head h2{
+  font-size:1.9rem;
+  font-weight:600;
+  margin:2px 0;
+  letter-spacing:.02em;
+}
+.section-head p{margin:0;color:var(--text-soft)}
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:24px;
+}
+.card-inner{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--inset);
+  padding:22px;
+}
+.grid{display:grid;gap:20px}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:900px){
+  .grid-3,.grid-4{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:600px){
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+  section{padding:56px 0}
+}
+.chip{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-size:.8rem;
+  font-weight:600;
+  color:var(--text-soft);
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:999px;
+  box-shadow:3px 3px 8px #C9D5E7,-3px -3px 8px #FFFFFF;
+  padding:4px 12px;
+}
+.chip--soft{
+  box-shadow:var(--inset);
+  color:var(--text-faint);
+}
+.reveal{
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity .4s ease,transform .4s ease;
+  will-change:opacity,transform;
+}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+}
+</style>
+
+<style>
+.nav{
+  position:sticky;
+  top:14px;
+  z-index:50;
+  padding:12px 24px;
+  background:rgba(228,235,245,.86);
+  border:1px solid #FFFFFF;
+  border-radius:18px;
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(8px);
+}
+.nav__inner{display:flex;align-items:center;gap:16px}
+.nav__logo{
+  font-family:var(--font-hand);
+  font-size:1.5rem;
+  font-weight:700;
+  color:var(--text);
+  text-decoration:none;
+  margin-right:auto;
+}
+.nav__links{display:flex;gap:8px}
+.nav__link{
+  text-decoration:none;
+  color:var(--text-soft);
+  font-weight:600;
+  font-size:.9rem;
+  padding:8px 14px;
+  border-radius:999px;
+  border:1px solid transparent;
+  transition:color .18s ease,background .18s ease,box-shadow .18s ease;
+}
+.nav__link:hover{
+  color:var(--text);
+  background:var(--surface);
+  border-color:#FFFFFF;
+  box-shadow:3px 3px 8px #C9D5E7,-3px -3px 8px #FFFFFF;
+}
+.nav__link.is-active{
+  color:var(--primary-deep);
+  background:var(--surface);
+  border-color:#FFFFFF;
+  box-shadow:var(--inset);
+}
+.nav__link:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+@media (max-width:768px){
+  .nav{top:8px;padding:10px 16px}
+  .nav__links{gap:4px;overflow-x:auto;scrollbar-width:none}
+  .nav__link{white-space:nowrap;padding:7px 10px}
+}
+
+.hero{padding:64px 0 48px}
+.hero__card{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:32px;
+  align-items:center;
+  padding:40px;
+}
+.hero__avatar{
+  width:132px;
+  height:132px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-family:var(--font-hand);
+  font-size:4rem;
+  font-weight:700;
+  color:var(--primary-deep);
+  background:var(--surface);
+  border:1px solid #FFFFFF;
+  box-shadow:var(--shadow-lg),inset 2px 2px 6px #FFFFFF;
+}
+.hero__tagline{
+  font-family:var(--font-hand);
+  font-size:1.7rem;
+  color:var(--primary-deep);
+  margin:0 0 6px;
+}
+.hero h1{font-size:2.6rem;font-weight:700;margin:0;line-height:1.2}
+.hero__sub{margin:14px 0 0;color:var(--text-soft);max-width:52ch}
+.hero__actions{display:flex;gap:14px;margin-top:24px;flex-wrap:wrap}
+.hero__badge{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:20px;
+}
+@media (max-width:768px){
+  .hero__card{grid-template-columns:1fr;text-align:center;padding:32px 24px;justify-items:center}
+  .hero h1{font-size:2rem}
+}
+</style>
+
+<style>
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:.95rem;
+  color:var(--text);
+  background:var(--surface);
+  border:1px solid #FFFFFF;
+  border-radius:999px;
+  box-shadow:var(--shadow);
+  padding:11px 22px;
+  cursor:pointer;
+  transition:box-shadow .18s ease,transform .18s ease,color .18s ease;
+}
+.btn:hover{transform:translateY(-1px);box-shadow:8px 8px 18px #BFCDE4,-8px -8px 18px #FFFFFF;color:var(--primary-deep)}
+.btn:active{transform:translateY(0);box-shadow:var(--inset)}
+.btn:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+.btn--primary{color:#FFFFFF;background:linear-gradient(180deg,#6E9BF2,#4E82EC);border-color:#8FB0F4}
+.btn--primary:hover{color:#FFFFFF}
+
+.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:20px}
+@media (max-width:768px){.about-grid{grid-template-columns:1fr}}
+.about-card h3{margin:0 0 8px;font-size:1.1rem}
+.about-card p{margin:0;color:var(--text-soft)}
+.tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.facts{display:grid;gap:14px}
+.fact{
+  display:flex;
+  gap:14px;
+  align-items:center;
+  padding:16px 18px;
+}
+.fact__icon{
+  flex:none;
+  width:44px;height:44px;
+  display:grid;place-items:center;
+  border-radius:12px;
+  background:var(--surface);
+  border:1px solid #FFFFFF;
+  box-shadow:var(--inset);
+  color:var(--primary-deep);
+}
+.fact__label{font-size:.8rem;color:var(--text-faint);margin:0}
+.fact__value{font-weight:600;margin:0}
+
+.game-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media (max-width:768px){.game-grid{grid-template-columns:1fr}}
+.game-slot{
+  min-height:200px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  text-align:center;
+  color:var(--text-faint);
+}
+.game-slot svg{color:#AAB8CF}
+.game-slot strong{color:var(--text-soft);font-weight:600}
+.game-slot span{font-size:.85rem}
+.game-slot__hint{
+  font-family:var(--font-hand);
+  font-size:1.25rem;
+  color:var(--text-faint);
+}
+.game-slot--img{align-items:stretch;justify-content:stretch;gap:0;padding:0;overflow:hidden}
+.game-slot--img img{
+  width:100%;height:100%;min-height:200px;object-fit:cover;display:block;
+}
+.game-slot--img .game-slot__caption{
+  position:relative;margin-top:0;padding:12px 14px;
+  display:flex;flex-direction:column;gap:2px;text-align:left;
+  background:var(--surface);border-top:1px solid #FFFFFF;
+  box-shadow:0 -3px 8px #C3D0E4;
+}
+.game-slot--img .game-slot__caption strong{color:var(--text);font-weight:600}
+.game-slot--img .game-slot__caption span{font-size:.85rem;color:var(--text-soft)}
+
+
+.friend-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:900px){.friend-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.friend-grid{grid-template-columns:1fr}}
+.friend{display:flex;align-items:center;gap:14px;padding:20px}
+.friend__avatar{
+  flex:none;
+  width:56px;height:56px;
+  border-radius:50%;
+  display:grid;place-items:center;
+  font-family:var(--font-hand);
+  font-size:1.5rem;font-weight:700;
+  color:var(--primary-deep);
+  background:var(--surface);
+  border:1px solid #FFFFFF;
+  box-shadow:var(--shadow),inset 2px 2px 5px #FFFFFF;
+}
+.friend__name{font-weight:600;margin:0}
+.friend__desc{font-size:.85rem;color:var(--text-soft);margin:0}
+.friend__desc em{font-style:normal;color:var(--text-faint)}
+.friend--link{color:inherit;text-decoration:none;display:flex}
+.friend--link .friend__more{
+  display:inline-block;margin-top:6px;
+  font-size:.8rem;font-weight:600;color:var(--primary-deep);
+  opacity:.85;transition:opacity .18s ease}
+.friend--link:hover{transform:translateY(-2px);box-shadow:8px 8px 20px #BFCDE4,-8px -8px 20px #FFFFFF}
+.friend--link:hover .friend__more{opacity:1}
+.friend--link:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+.post--link{color:inherit;text-decoration:none;display:block}
+.post--link:hover{transform:translateY(-2px);box-shadow:8px 8px 20px #BFCDE4,-8px -8px 20px #FFFFFF}
+.post--link:hover .post__body h3{color:var(--primary-deep)}
+.post--link:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+.post__body h3{transition:color .18s ease}
+
+.link-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media (max-width:600px){.link-grid{grid-template-columns:1fr}}
+.link-card{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--text)}
+.link-card:hover .link-card__title{color:var(--primary-deep)}
+.link-card__icon{
+  flex:none;
+  width:48px;height:48px;
+  display:grid;place-items:center;
+  border-radius:12px;
+  background:var(--surface);
+  border:1px solid #FFFFFF;
+  box-shadow:var(--inset);
+}
+.link-card__title{font-weight:600;margin:0}
+.link-card__desc{font-size:.85rem;color:var(--text-soft);margin:2px 0 0}
+.link-card__arrow{margin-left:auto;color:var(--text-faint)}
+
+.blog-list{display:grid;gap:16px}
+.post{display:flex;gap:16px;align-items:flex-start;padding:22px}
+.post__date{
+  flex:none;
+  width:64px;
+  text-align:center;
+  border-radius:12px;
+  background:var(--surface);
+  border:1px solid #FFFFFF;
+  box-shadow:var(--inset);
+  padding:10px 0;
+}
+.post__date b{display:block;font-family:var(--font-hand);font-size:1.6rem;line-height:1;color:var(--primary-deep)}
+.post__date span{font-size:.7rem;color:var(--text-faint)}
+.post__body h3{margin:0 0 4px;font-size:1.05rem}
+.post__body p{margin:0;color:var(--text-soft);font-size:.9rem}
+.post__tag{
+  display:inline-block;
+  margin-top:10px;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--primary-deep);
+}
+.post__more{
+  display:inline-block;
+  margin-left:12px;
+  font-size:.8rem;
+  font-weight:600;
+  color:var(--primary-deep);
+}
+
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:900px){.contact-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.contact-grid{grid-template-columns:1fr}}
+.contact-card{text-align:center;padding:26px 20px}
+.contact-card__icon{
+  width:52px;height:52px;
+  margin:0 auto 12px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  background:var(--surface);
+  border:1px solid #FFFFFF;
+  box-shadow:var(--shadow);
+  color:var(--primary-deep);
+}
+.contact-card h3{margin:0 0 4px;font-size:1rem}
+.contact-card p{margin:0;color:var(--text-soft);font-size:.85rem;word-break:break-all}
+.contact-card .btn{margin-top:14px;width:100%;justify-content:center}
+
+.footer{padding:40px 0 48px}
+.footer__card{display:flex;align-items:center;justify-content:center;gap:12px;padding:24px;text-align:center}
+.footer p{margin:0;color:var(--text-soft);font-size:.9rem}
+.wall{
+  margin-top:40px;background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);box-shadow:var(--shadow-lg);padding:28px;
+}
+.wall__title{margin:0 0 4px;font-size:1.2rem;font-weight:700}
+.wall__hint{margin:0 0 18px;color:var(--text-soft);font-size:.9rem}
+.wall__form{display:grid;gap:12px}
+.wall__row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:560px){.wall__row{grid-template-columns:1fr}}
+.wall input,.wall textarea{
+  width:100%;background:var(--surface);border:1px solid #FFFFFF;border-radius:10px;
+  box-shadow:var(--inset);color:var(--text);font-family:var(--font-body);font-size:.95rem;
+  padding:11px 14px;outline:none;transition:box-shadow .18s ease;
+}
+.wall input:focus,.wall textarea:focus{box-shadow:inset 4px 4px 10px #BFCDE4,0 0 0 2px var(--primary);outline:none}
+.wall textarea{resize:vertical;min-height:76px}
+.wall__actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.wall__status{font-size:.85rem;color:var(--text-soft);margin:0}
+.wall__status.ok{color:var(--primary-deep);font-weight:600}
+.wall__status.err{color:#C0563B;font-weight:600}
+.wall__list{display:grid;gap:14px;margin-top:24px;max-height:420px;overflow:auto;padding-right:4px}
+.wall__list::-webkit-scrollbar{width:8px}
+.wall__list::-webkit-scrollbar-thumb{background:#C3D0E4;border-radius:8px}
+.msg{
+  display:flex;gap:14px;background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;box-shadow:var(--shadow);padding:16px;
+}
+.msg__avatar{
+  flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;
+  font-family:var(--font-hand);font-size:1.4rem;font-weight:700;color:var(--primary-deep);
+  background:var(--surface);border:1px solid #FFFFFF;box-shadow:var(--inset);
+}
+.msg__head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.msg__name{font-weight:700;margin:0}
+.msg__time{font-size:.75rem;color:var(--text-faint);margin:0}
+.msg__body{margin:6px 0 0;color:var(--text-soft);white-space:pre-wrap;word-break:break-word}
+.wall__empty{color:var(--text-faint);font-size:.9rem;text-align:center;padding:18px;box-shadow:var(--inset);border-radius:10px;background:var(--surface);border:1px solid var(--border)}
+.footer .heart{color:var(--primary-deep)}
+.toc{
+  margin-top:22px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+</style>
+
+</head>
+<body>
+<nav class="nav container" aria-label="主导航">
+  <div class="nav__inner">
+    <a class="nav__logo" href="#top">ECS.</a>
+    <div class="nav__links">
+      <a class="nav__link" href="#about">关于我</a>
+      <a class="nav__link" href="#games">游戏日常</a>
+      <a class="nav__link" href="#friends">我的朋友</a>
+      <a class="nav__link" href="#links">推广链接</a>
+      <a class="nav__link" href="#blog">博客</a>
+      <a class="nav__link" href="#wall">留言</a>
+      <a class="nav__link" href="#contact">联系</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero container" id="top">
+  <div class="card hero__card reveal">
+    <div class="hero__avatar" aria-hidden="true">易</div>
+    <div>
+      <p class="hero__tagline">Hello, 这里是易承顺的小站</p>
+      <h1>易承顺</h1>
+      <p class="hero__sub">蜚山一小学生 · 我的世界爱好者 · 目标：上一中。<br>这里记录我的游戏日常、朋友和一些正在做的事情。</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#about">认识一下我</a>
+        <a class="btn" href="#contact">联系我</a>
+      </div>
+      <div class="hero__badge">
+        <span class="chip">喜欢玩我的世界</span>
+        <span class="chip">想上一中</span>
+        <span class="chip">学生</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about" class="container">
+  <div class="section-head reveal">
+    <span class="eyebrow">about me</span>
+    <h2>关于我</h2>
+    <p>简单的自我介绍</p>
+  </div>
+  <div class="about-grid">
+    <div class="card about-card reveal">
+      <h3>嘿，我是易承顺</h3>
+      <p>我是一名蜚山一小的学生。平时最大的爱好是玩《我的世界》，在里面建房子、探索、研究红石。学习方面，我的目标很明确：考上一中。这个网站就是我的小树洞，用来记录日常、分享我的世界截图，还有存放我推荐的好链接。</p>
+      <div class="tag-row">
+        <span class="chip chip--soft">学生</span>
+        <span class="chip chip--soft">Minecraft</span>
+        <span class="chip chip--soft">学习</span>
+      </div>
+    </div>
+    <div class="card card-inner facts reveal">
+      <div class="fact">
+        <div class="fact__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <div><p class="fact__label">身份</p><p class="fact__value">蜚山一小学生</p></div>
+      </div>
+      <div class="fact">
+        <div class="fact__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="10"/></svg>
+        </div>
+        <div><p class="fact__label">爱好</p><p class="fact__value">玩我的世界</p></div>
+      </div>
+      <div class="fact">
+        <div class="fact__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4"/><circle cx="12" cy="12" r="9"/></svg>
+        </div>
+        <div><p class="fact__label">目标</p><p class="fact__value">考上一中</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="games" class="container">
+  <div class="section-head reveal">
+    <span class="eyebrow">minecraft</span>
+    <h2>游戏日常</h2>
+    <p>我的《我的世界》日常 </p>
+  </div>
+  <div class="game-grid">
+    <div class="card-inner game-slot game-slot--img reveal">
+      <img src="img/a.png" alt="i'm him" loading="lazy">
+      <div class="game-slot__caption">
+        <strong>中秋亭</strong>
+        <span>一座樱花小亭</span>
+      </div>
+    </div>
+    <div class="card-inner game-slot game-slot--img reveal">
+      <img src="img/b.png" alt="i'm him" loading="lazy">
+      <div class="game-slot__caption">
+        <strong>泡温泉</strong>
+        <span>坐在水里面</span>
+      </div>
+    </div>
+    <div class="card-inner game-slot game-slot--img reveal">
+      <img src="img/j.png" alt="I'm him" loading="lazy">
+      <div class="game-slot__caption">
+        <strong>空岛</strong>
+        <span>空岛上的樱花树</span>
+      </div>
+    </div>
+    <div class="card-inner game-slot game-slot--img reveal">
+      <img src="img/c.png" alt="I'm him" loading="lazy">
+      <div class="game-slot__caption">
+        <strong>樱花树下</strong>
+        <span>樱花树下的科比</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="friends" class="container">
+  <div class="section-head reveal">
+    <span class="eyebrow">friends</span>
+    <h2>我的朋友</h2>
+    <p>一起玩游戏、一起学习的伙伴们</p>
+  </div>
+  <div class="friend-grid">
+    <a class="card friend friend--link reveal" href="friend.html?who=小A">
+      <div class="friend__avatar" aria-hidden="true">胡</div>
+      <div>
+        <p class="friend__name">胡金炎同学</p>
+        <p class="friend__desc">我的同学 MC好友 <em>· 会碎的矿石粉</em></p>
+        <span class="friend__more">了解 TA</span>
+      </div>
+    </a>
+    <a class="card friend friend--link reveal" href="friend.html?who=小B">
+      <div class="friend__avatar" aria-hidden="true">李</div>
+      <div>
+        <p class="friend__name">小易晨</p>
+        <p class="friend__desc">同班同学 <em>· 也在努力</em></p>
+        <span class="friend__more">了解 TA</span>
+      </div>
+    </a>
+    <a class="card friend friend--link reveal" href="friend.html?who=小C">
+      <div class="friend__avatar" aria-hidden="true">余</div>
+      <div>
+        <p class="friend__name">余秉昊</p>
+        <p class="friend__desc">同班同学 <em>· 喜欢数学</em></p>
+        <span class="friend__more">了解 TA</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section id="links" class="container">
+  <div class="section-head reveal">
+    <span class="eyebrow">recommend</span>
+    <h2>推广链接</h2>
+    <p>我在玩 / 推荐给我的</p>
+  </div>
+  <div class="link-grid">
+    <a class="card link-card reveal" href="https://www.minecraft.net/" target="_blank" rel="noopener">
+      <div class="link-card__icon" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 3v18M3 9h18"/></svg>
+      </div>
+      <div>
+        <p class="link-card__title">我的世界 · 官方</p>
+        <p class="link-card__desc">Minecraft 官网，正版与资讯入口</p>
+      </div>
+      <div class="link-card__arrow" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+      </div>
+    </a>
+    <a class="card link-card reveal" href="https://mc.163.com/" target="_blank" rel="noopener">
+      <div class="link-card__icon" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="1.4"/><circle cx="15" cy="15" r="1.4"/></svg>
+      </div>
+      <div>
+        <p class="link-card__title">我的世界 · 中国版</p>
+        <p class="link-card__desc">网易我的世界（基岩版）下载入口</p>
+      </div>
+      <div class="link-card__arrow" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+      </div>
+    </a>
+    <a class="card link-card reveal" href="https://space.bilibili.com/1977000139?spm_id_from=333.937.0.0" target="_blank" rel="noopener">
+      <div class="link-card__icon" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="14" rx="3"/><path d="M8 3l3 3M16 3l-3 3"/></svg>
+      </div>
+      <div>
+        <p class="link-card__title">Bilibili</p>
+        <p class="link-card__desc">看视频、学红石教程的地方</p>
+      </div>
+      <div class="link-card__arrow" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+      </div>
+    </a>
+    <a class="card link-card reveal" href="https://github.com/Asue2025" target="_blank" rel="noopener">
+      <div class="link-card__icon" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.3 5.4 2.6 5.4 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+      </div>
+      <div>
+        <p class="link-card__title">GitHub</p>
+        <p class="link-card__desc">我的代码仓库</p>
+      </div>
+      <div class="link-card__arrow" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section id="blog" class="container">
+  <div class="section-head reveal">
+    <span class="eyebrow">blog</span>
+    <h2>博客</h2>
+    <p>最近写的东西 · 点文章看全文（占位内容，以后陆续更新）</p>
+  </div>
+  <div class="blog-list">
+    <a class="card post post--link reveal" href="article.html?post=welcome">
+      <div class="post__date" aria-hidden="true"><b>06</b><span>OCT</span></div>
+      <div class="post__body">
+        <h3>欢迎来到我的小站</h3>
+        <p>这是我的个人博客第一篇，简单聊聊我为什么想做这个网站。</p>
+        <span class="post__tag">生活</span>
+        <span class="post__more">阅读全文</span>
+      </div>
+    </a>
+    <a class="card post post--link reveal" href="article.html?post=mc-house">
+      <div class="post__date" aria-hidden="true"><b>01</b><span>OCT</span></div>
+      <div class="post__body">
+        <h3>我的世界：我最近搭的一个房子</h3>
+        <p>记录一次建筑过程，用到的方块和一点小设计思路。（配图待补）</p>
+        <span class="post__tag">Minecraft</span>
+        <span class="post__more">阅读全文</span>
+      </div>
+    </a>
+    <a class="card post post--link reveal" href="article.html?post=goal">
+      <div class="post__date" aria-hidden="true"><b>20</b><span>SEP</span></div>
+      <div class="post__body">
+        <h3>为了上一中，我给自己定了计划</h3>
+        <p>把目标写下来，每周检查一次，记录在博客里。</p>
+        <span class="post__tag">学习</span>
+        <span class="post__more">阅读全文</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section id="contact" class="container">
+  <div class="section-head reveal">
+    <span class="eyebrow">say hi</span>
+    <h2>联系</h2>
+    <p>欢迎来找我玩、找我聊</p>
+  </div>
+  <div class="contact-grid">
+    <div class="card contact-card reveal">
+      <div class="contact-card__icon" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 7l9 6 9-6"/></svg>
+      </div>
+      <h3>邮箱</h3>
+      <p>asueisme@outlook.com</p>
+      <a class="btn" href="mailto:asueisme@outlook.com">写邮件</a>
+    </div>
+    <div class="card contact-card reveal">
+      <div class="contact-card__icon" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="14" rx="3"/><path d="M8 3l3 3M16 3l-3 3"/></svg>
+      </div>
+      <h3>BiliBili</h3>
+      <p>@Asueandagie</p>
+      <a class="btn" href="https://space.bilibili.com/1977000139?spm_id_from=333.937.0.0" target="_blank" rel="noopener">去主页</a>
+    </div>
+    <div class="card contact-card reveal">
+      <div class="contact-card__icon" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.3 5.4 2.6 5.4 2.6a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+      </div>
+      <h3>GitHub</h3>
+      <p>Asue2025</p>
+      <a class="btn" href="https://github.com/Asue2025" target="_blank" rel="noopener">去主页</a>
+    </div>
+  </div>
+</section>
+
+<section id="wall" class="container">
+  <div class="section-head reveal">
+    <span class="eyebrow">message wall</span>
+    <h2>留言墙</h2>
+    <p>随便留个言，欢迎认识你</p>
+  </div>
+  <form class="wall reveal" id="wall-form">
+    <div class="wall__form">
+      <input id="wall-name" type="text" maxlength="20" placeholder="你的昵称" aria-label="昵称">
+      <textarea id="wall-msg" rows="3" maxlength="500" placeholder="想说的话…" aria-label="留言"></textarea>
+      <div class="wall__actions">
+        <button class="btn btn--primary" id="wall-submit" type="submit">留下言</button>
+        <p class="wall__status" id="wall-status" role="status"></p>
+      </div>
+    </div>
+    <div class="wall__list" id="wall-list" aria-live="polite">
+      <div class="wall__empty">还没有留言，来写第一条吧～</div>
+    </div>
+  </form>
+</section>
+
+<footer class="footer container">
+  <div class="card footer__card reveal">
+    <p>© <span id="year">2026</span> 易承顺 · 用 <span class="heart">Neumorphism</span> 风格做的个人小站 · Agnes3.0制作</p>
+  </div>
+</footer>
+<script>
+(function () {
+  var year = document.getElementById('year');
+  if (year) year.textContent = new Date().getFullYear();
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    items.forEach(function (el, k) {
+      el.style.transitionDelay = (k % 4) * 60 + 'ms';
+      io.observe(el);
+    });
+  }
+
+  var links = document.querySelectorAll('.nav__link');
+  var sections = document.querySelectorAll('section[id], header[id]');
+  if ('IntersectionObserver' in window && links.length) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var id = entry.target.id;
+          links.forEach(function (l) {
+            l.classList.toggle('is-active', l.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach(function (s) { if (s.id) spy.observe(s); });
+  }
+
+  // ---------- 留言墙 ----------
+  // 同域留言后端：留言接口挂在本站域名下 /api（Cloudflare Pages Function），无需其它域名、无需 CORS
+  var WALL_API = "/api";
+  var list = document.getElementById('wall-list');
+  var form = document.getElementById('wall-form');
+  var nameIn = document.getElementById('wall-name');
+  var msgIn = document.getElementById('wall-msg');
+  var btn = document.getElementById('wall-submit');
+  var status = document.getElementById('wall-status');
+
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  function initial(name) {
+    var n = (name || '').trim();
+    if (!n) return '?';
+    var c = n[0];
+    if (/[一-龥]/.test(c)) return c;
+    return c.toUpperCase();
+  }
+  function fmtTime(ts) {
+    var d = ts ? new Date(ts * 1000) : new Date();
+    function pad(x) { return (x < 10 ? '0' : '') + x; }
+    return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) +
+      ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes());
+  }
+  function render(data) {
+    if (!list) return;
+    if (!data || !data.length) {
+      list.innerHTML = '<div class="wall__empty">还没有留言，来写第一条吧～</div>';
+      return;
+    }
+    list.innerHTML = data.map(function (m) {
+      return '<div class="msg">' +
+        '<div class="msg__avatar" aria-hidden="true">' + esc(initial(m.name)) + '</div>' +
+        '<div><div class="msg__head"><p class="msg__name">' + esc(m.name || '匿名') + '</p>' +
+        '<p class="msg__time">' + fmtTime(m.ts) + '</p></div>' +
+        '<p class="msg__body">' + esc(m.text) + '</p></div>' +
+        '</div>';
+    }).join('');
+  }
+  function apiReady() {
+    return WALL_API && WALL_API.indexOf('YOUR_WORKER') !== 0;
+  }
+  function load() {
+    if (!apiReady()) return;
+    fetch(WALL_API + '?action=list')
+      .then(function (r) { return r.json(); })
+      .then(function (data) { render(Array.isArray(data) ? data : []); })
+      .catch(function () { list.innerHTML = '<div class="wall__empty">留言加载失败，稍后再试</div>'; });
+  }
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = (nameIn && nameIn.value) ? nameIn.value.trim() : '';
+      var text = msgIn.value.trim();
+      status.className = 'wall__status';
+      if (!apiReady()) {
+        status.textContent = '还没配置后端，留言没保存（本地预览）';
+        status.className = 'wall__status err';
+        return;
+      }
+      if (!text) { status.textContent = '留言不能为空'; status.className = 'wall__status err'; return; }
+      btn.disabled = true; btn.textContent = '提交中…';
+      fetch(WALL_API + '?action=add', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name || '匿名', text: text })
+      })
+      .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+      .then(function (res) {
+        btn.disabled = false; btn.textContent = '留下言';
+        if (res.ok) {
+          status.textContent = '已收到，谢谢！';
+          status.className = 'wall__status ok';
+          msgIn.value = ''; nameIn.value = '';
+          load();
+        } else {
+          status.textContent = '提交失败：' + (res.d && res.d.error ? res.d.error : '未知错误');
+          status.className = 'wall__status err';
+        }
+      })
+      .catch(function () {
+        btn.disabled = false; btn.textContent = '留下言';
+        status.textContent = '网络错误，请重试';
+        status.className = 'wall__status err';
+      });
+    });
+  }
+  load();
+})();
+</script>
+</body>
+</html>

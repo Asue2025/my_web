@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>博客 · 易承顺的个人小站</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#E4EBF5; --surface:#E4EBF5; --primary:#5B8DEF; --primary-deep:#3D6ED8;
+  --text:#33425C; --text-soft:#6B7A94; --text-faint:#8A97B0;
+  --border:#FFFFFF; --radius:14px;
+  --shadow:6px 6px 14px #C3D0E4,-6px -6px 14px #FFFFFF;
+  --shadow-lg:8px 8px 20px #BFCDE4,-8px -8px 20px #FFFFFF;
+  --inset:inset 4px 4px 10px #C3D0E4,inset -4px -4px 10px #FFFFFF;
+  --font-body:"Quicksand","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  --font-hand:"Caveat","Quicksand","PingFang SC","PingFang SC","Microsoft YaHei",cursive;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:linear-gradient(180deg,#E9F0F8 0%,var(--bg) 40%,#E1E9F4 100%);
+  background-attachment:fixed;
+  color:var(--text);
+  font-family:var(--font-body);
+  font-size:16px;line-height:1.9;
+}
+a{color:var(--primary-deep)}
+.container{width:min(760px,calc(100% - 48px));margin-inline:auto;padding:56px 0}
+.eyebrow{display:inline-block;font-family:var(--font-hand);font-size:1.5rem;font-weight:600;color:var(--primary-deep);margin:0 0 4px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:.95rem;
+  color:var(--text);background:var(--surface);border:1px solid #FFFFFF;border-radius:999px;
+  box-shadow:var(--shadow);padding:11px 22px;cursor:pointer;
+  transition:box-shadow .18s ease,transform .18s ease,color .18s ease;
+}
+.btn:hover{transform:translateY(-1px);color:var(--primary-deep)}
+.btn:active{box-shadow:var(--inset)}
+.btn:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+.post-card{
+  margin-top:32px;background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);box-shadow:var(--shadow-lg);padding:34px;
+}
+.post-meta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;color:var(--text-faint);font-size:.85rem;margin-bottom:14px}
+.post-meta .tag{
+  background:var(--surface);border:1px solid #FFFFFF;border-radius:999px;
+  box-shadow:var(--inset);color:var(--primary-deep);font-weight:700;padding:3px 12px;font-size:.75rem;letter-spacing:.08em;
+}
+.post-card h1{font-size:1.7rem;font-weight:700;margin:0 0 18px;line-height:1.35}
+.post-card p{margin:0 0 14px;color:var(--text-soft)}
+.post-card strong{color:var(--text)}
+.placeholder{
+  border:1.5px dashed #B6C4DA;border-radius:10px;padding:16px;margin:14px 0;
+  color:var(--text-faint);font-size:.9rem;background:#E9F0F8;
+}
+.related{margin-top:36px}
+.related-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--inset);padding:22px}
+.related-card h3{margin:0 0 12px;font-size:1rem}
+.related-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.related-list a{text-decoration:none;color:var(--text-soft);font-weight:600}
+.related-list a:hover{color:var(--primary-deep)}
+footer{padding:24px 0 40px}
+footer p{text-align:center;margin:0;color:var(--text-faint);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="container">
+  <a class="btn" href="index.html" style="margin-bottom:8px">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+    回到博客列表
+  </a>
+  <div class="eyebrow">blog post</div>
+  <article class="post-card" id="post"></article>
+
+  <div class="related">
+    <div class="related-card">
+      <h3>其他文章</h3>
+      <ul class="related-list">
+        <li><a href="article.html?post=welcome">欢迎来到我的小站</a></li>
+        <li><a href="article.html?post=mc-house">我的世界：我最近搭的一个房子</a></li>
+        <li><a href="article.html?post=goal">为了上一中，我给自己定了计划</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<footer>
+  <p>© 2026 易承顺 · 用 Neumorphism 风格做的个人小站</p>
+</footer>
+
+<script>
+(function(){
+  var params = new URLSearchParams(location.search);
+  var key = params.get('post') || 'welcome';
+  var posts = {
+    'welcome': {
+      title: '欢迎来到我的小站',
+      tag: '生活',
+      date: '2026-10-07',
+      body: [
+        '<p>这是我在博客上写的第一篇文章。做这个网站的原因很简单:想纪念自己的小学。我想在小学生涯即将结束之际,把它留存下来.</p>',
+        '<p>网站是 Neumorphism风格,代码自然是AI写的。(我不用豆包,豆包真💩)</p>',
+        '<p>如果你是从「关于我」点过来的，欢迎继续往下看看。觉得哪里可以改，可以直接邮件告诉我。</p>'
+      ]
+    },
+    'mc-house': {
+      title: '我的世界：我最近搭的一个房子',
+      tag: 'Minecraft',
+      date: '2026-10-07',
+      body: [
+        '<p>上个月我搭了一个主基地，花了一个下午。位置在出生点往东大约 500 格，地下有矿洞直连红石农场。</p>',
+        '<p><strong>设计思路：</strong>外观用了樱花木板和玻璃，屋顶是中式风格，门口放了一个小花园。</p>',
+        '<p><strong>内部布局：</strong>一楼是仓库墙 + 烹饪区，二楼是我的卧室，三楼放红石工作台。以后我还会加一个附魔台和图书馆。</p>',
+        '<p>下次我打算搭一个水下基地，或者试一下红石电梯。有想法的可以在评论区告诉我。</p>'
+      ]
+    },
+    'goal': {
+      title: '为了上一中，我给自己定了计划',
+      tag: '学习',
+      date: '2026-09-20',
+      body: [
+        '<p>我的目标很明确：考上一中。为了不让这件事只停在嘴上，我给自己写了一个可以每周检查的计划。</p>',
+        '<p><strong>每周固定三件事：</strong></p>',
+        '<p>1. 每周日晚上花 20 分钟回顾本周补习班题目,整理到题本;2. 每天睡前 15 分钟看题本;3. 每周至少完成一次限时套卷，模拟考试节奏</p>',
+        '<p><strong>和游戏的平衡：</strong>MC 不是完全戒掉，而是放在周末，作为完成周计划后的奖励。如果某周没完成，那周就少玩一天。</p>',
+        '<p><strong>注意:全是乱说!</p>'
+      ]
+    }
+  };
+  var d = posts[key] || posts['welcome'];
+  var el = document.getElementById('post');
+  document.title = d.title + ' · 易承顺的个人小站';
+  el.innerHTML =
+    '<div class="post-meta">' +
+      '<span>' + d.date + '</span>' +
+      '<span class="tag">' + d.tag + '</span>' +
+    '</div>' +
+    '<h1>' + d.title + '</h1>' +
+    d.body.join('');
+})();
+</script>
+</body>
+</html>

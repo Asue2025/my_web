@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>我的朋友 · 易承顺的个人小站</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#E4EBF5; --surface:#E4EBF5; --primary:#5B8DEF; --primary-deep:#3D6ED8;
+  --text:#33425C; --text-soft:#6B7A94; --text-faint:#8A97B0;
+  --border:#FFFFFF; --radius:14px;
+  --shadow:6px 6px 14px #C3D0E4,-6px -6px 14px #FFFFFF;
+  --shadow-lg:8px 8px 20px #BFCDE4,-8px -8px 20px #FFFFFF;
+  --inset:inset 4px 4px 10px #C3D0E4,inset -4px -4px 10px #FFFFFF;
+  --font-body:"Quicksand","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  --font-hand:"Caveat","Quicksand","PingFang SC","Microsoft YaHei",cursive;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:linear-gradient(180deg,#E9F0F8 0%,var(--bg) 40%,#E1E9F4 100%);
+  background-attachment:fixed;
+  color:var(--text);
+  font-family:var(--font-body);
+  font-size:16px;line-height:1.7;
+}
+a{color:var(--primary-deep)}
+.container{width:min(960px,calc(100% - 48px));margin-inline:auto;padding:56px 0}
+.eyebrow{display:inline-block;font-family:var(--font-hand);font-size:1.5rem;font-weight:600;color:var(--primary-deep);margin:0 0 4px}
+h1{font-size:2rem;font-weight:700;margin:2px 0 0}
+.subtitle{margin:12px 0 0;color:var(--text-soft)}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:.95rem;
+  color:var(--text);background:var(--surface);border:1px solid #FFFFFF;border-radius:999px;
+  box-shadow:var(--shadow);padding:11px 22px;cursor:pointer;
+  transition:box-shadow .18s ease,transform .18s ease,color .18s ease;
+}
+.btn:hover{transform:translateY(-1px);color:var(--primary-deep)}
+.btn:active{box-shadow:var(--inset)}
+.btn:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+.profile{
+  margin-top:36px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  box-shadow:var(--shadow-lg);padding:36px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;
+}
+.profile__avatar{
+  width:104px;height:104px;border-radius:50%;display:grid;place-items:center;
+  font-family:var(--font-hand);font-size:3rem;font-weight:700;color:var(--primary-deep);
+  background:var(--surface);border:1px solid #FFFFFF;box-shadow:var(--shadow-lg),inset 2px 2px 6px #FFFFFF;
+}
+.profile h2{margin:0 0 6px;font-size:1.5rem}
+.profile .role{margin:0;color:var(--text-soft)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{
+  display:inline-flex;align-items:center;font-size:.8rem;font-weight:600;color:var(--text-soft);
+  background:var(--surface);border:1px solid var(--border);border-radius:999px;
+  box-shadow:3px 3px 8px #C9D5E7,-3px -3px 8px #FFFFFF;padding:4px 12px;
+}
+.chip--soft{box-shadow:var(--inset);color:var(--text-faint)}
+.card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:24px;
+}
+.card h3{margin:0 0 8px;font-size:1.05rem}
+.card p{margin:0;color:var(--text-soft)}
+.detail-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:24px}
+@media (max-width:768px){
+  .profile{grid-template-columns:1fr;text-align:center;justify-items:center;padding:28px}
+  .detail-grid{grid-template-columns:1fr}
+}
+.toc{margin-top:36px}
+.toc-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--inset);padding:22px}
+.toc-card h3{margin:0 0 10px;font-size:1rem}
+.toc-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.toc-list a{text-decoration:none;color:var(--text-soft);font-weight:600;display:inline-flex;align-items:center;gap:8px}
+.toc-list a:hover{color:var(--primary-deep)}
+.toc-list li.is-current a{color:var(--primary-deep)}
+footer{padding:24px 0 40px}
+footer p{text-align:center;margin:0;color:var(--text-faint);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="container">
+  <a class="btn" href="index.html" style="margin-bottom:8px">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+    回到首页
+  </a>
+  <div class="eyebrow">my friend</div>
+  <h1 id="f-name">我的朋友</h1>
+  <p class="subtitle" id="f-role">这里是这位朋友的介绍页</p>
+</div>
+
+<div class="container" style="padding-top:0">
+  <div class="profile card">
+    <div class="profile__avatar" id="f-avatar" aria-hidden="true">胡金炎</div>
+    <div>
+      <h2 id="f-name2">胡金炎同学</h2>
+      <p class="role" id="f-role2">同班同学,MC好友</p>
+      <div class="chips" id="f-chips">
+        <span class="chip">Minecraft</span>
+        <span class="chip">开黑搭子</span>
+        <span class="chip">67</span>
+      </div>
+    </div>
+  </div>
+  <div class="detail-grid">
+    <div class="card">
+      <h3>怎么认识的</h3>
+      <p id="f-how">四年级分班,和他分到了一起。</p>
+    </div>
+    <div class="card">
+      <h3>一起玩什么</h3>
+      <p id="f-play">玩MC(我都不知道他什么时候上线!)。</p>
+    </div>
+    <div class="card">
+      <h3>TA 的特点</h3>
+      <p id="f-trait">不知道。</p>
+    </div>
+    <div class="card">
+      <h3>一起干过的事</h3>
+      <p id="f-memory">末地烛,活塞,侦测器循环电路,羊(草羊机)</p>
+    </div>
+  </div>
+  <div class="toc">
+    <div class="toc-card">
+      <h3>其他朋友</h3>
+      <ul class="toc-list" id="toc">
+        <li data-who="胡金炎同学"><a href="friend.html">胡金炎 · 同班同学 · MC好友</a></li>
+        <li data-who="小易晨"><a href="friend.html?who=小B">小易晨 · 同班同学 · 也在努力</a></li>
+        <li data-who="余秉昊"><a href="friend.html?who=小C">余秉昊 · 同班同学 · 喜欢数学</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 易承顺 · 用 Neumorphism 风格做的个人小站</p>
+</footer>
+
+<script>
+(function(){
+  var params = new URLSearchParams(location.search);
+  var who = params.get('who') || '小A';
+  var data = {
+    '小A': {
+      avatar: '胡', name: '胡金炎同学', role: '同班同学,MC好友',
+      chips: ['Minecraft', '开黑搭子', '67'],
+      how: '四年级分班,和他分到了一起。',
+      play: '玩MC(我都不知道他什么时候上线!)。',
+      trait: '不知道。',
+      memory: '末地烛,活塞,侦测器循环电路,羊(草羊机)'
+    },
+    '小B': {
+      avatar: '李', name: '小易晨', role: '同班同学 · 也在努力',
+      chips: ['同班同学', '日常', 'Bro'],
+      how: '从1年级就认识了',
+      play: '数学,三角洲(我不玩)',
+      trait: '学习很厉害,数学很好',
+      memory: '没干什么(?)'
+    },
+    '小C': {
+      avatar: '余', name: '余秉昊', role: '同班同学 · 喜欢数学',
+      chips: ['同班同学', '天才', '成功上岸'],
+      how: '四年级分班',
+      play: '数学!!!!!!!!',
+      trait: '聪明,学习好',
+      memory: '没干什么(?)'
+    }
+  };
+  var d = data[who] || data['小A'];
+  var q = function(id){ return document.getElementById(id); };
+  document.title = d.name + ' · 我的朋友 · 易承顺的个人小站';
+  q('f-name').textContent = d.name;
+  q('f-role').textContent = d.role;
+  q('f-avatar').textContent = d.avatar;
+  q('f-name2').textContent = d.name;
+  q('f-role2').textContent = d.role;
+  var chipWrap = q('f-chips');
+  chipWrap.innerHTML = '';
+  d.chips.forEach(function(c, i){
+    var s = document.createElement('span');
+    s.className = 'chip' + (i === d.chips.length - 1 ? ' chip--soft' : '');
+    s.textContent = c;
+    chipWrap.appendChild(s);
+  });
+  q('f-how').textContent = d.how;
+  q('f-play').textContent = d.play;
+  q('f-trait').textContent = d.trait;
+  q('f-memory').textContent = d.memory;
+  var items = document.querySelectorAll('#toc li');
+  items.forEach(function(li){
+    li.classList.toggle('is-current', li.getAttribute('data-who') === who);
+  });
+})();
+</script>
+</body>
+</html>
